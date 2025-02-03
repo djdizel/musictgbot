@@ -27,14 +27,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user = User(username=username, chat_id=chat_id)
         db.add(user)
         db.commit()
-        await update.message.reply_text(f"Welcome, {username}! You have been registered.")
+        await update.message.reply_text(f"Привет, {username}! Ты был зарегистрирован.")
     else:
-        await update.message.reply_text(f"Welcome back, {username}!")
+        await update.message.reply_text(f"Привет,давно не виделись, {username}!")
     db.close()
 
 # Help command
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Use /start to register or greet yourself.")
+    await update.message.reply_text("/start для регистрации")
 
 # Remind command
 async def remind(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -54,9 +54,9 @@ async def remind(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         db.add(reminder)
         db.commit()
-        await update.message.reply_text(f"Reminder set for {time_str}!")
+        await update.message.reply_text(f"Напоминание поставлено на: {time_str}!")
     except Exception as e:
-        await update.message.reply_text(f"Error: {e}")
+        await update.message.reply_text(f"Ошибка: {e}")
     finally:
         db.close()
 
