@@ -1,2 +1,5 @@
+requests
 python-telegram-bot
-sqlalchemy
+SQLAlchemy
+psycopg2-binary
+yt-dlp
